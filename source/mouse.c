@@ -730,8 +730,10 @@ static void usbReEnumerate(TimerHandle_t xTimer) // TEST_CODE
 		USB_DeviceStop(g_UsbDeviceHidMouse.deviceHandle); // always returns kStatus_USB_Error
 		g_UsbDeviceHidMouse.attach = 0; // allows ignoring suspend event after re-enable.
 		NVIC_DisableIRQ(USB1_IRQn);
-		res = USB_DeviceClassDeinit(CONTROLLER_ID);
+		usb_status_t res = USB_DeviceClassDeinit(CONTROLLER_ID);
+//		usb_status_t res = USB_DeviceDeinit(g_UsbDeviceHidMouse.deviceHandle);
 
+//		res |= USB_DeviceInit(CONTROLLER_ID, USB_DeviceCallback, &g_UsbDeviceHidMouse.deviceHandle);
 	    res |= USB_DeviceClassInit(CONTROLLER_ID, &g_UsbDeviceHidConfigList, &g_UsbDeviceHidMouse.deviceHandle);
 	    NVIC_ClearPendingIRQ(USB1_IRQn);
 	    NVIC_EnableIRQ(USB1_IRQn);
