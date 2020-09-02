@@ -549,7 +549,7 @@ void APP_task(void *handle)
 {
     USB_DeviceApplicationInit();
 
-    usbReEnumerationTimer = xTimerCreate("usbReEnumerationTimer", 1000, pdFALSE, 0, usbReEnumerate);
+    usbReEnumerationTimer = xTimerCreate("usbReEnumerationTimer", 1000, pdFALSE, 0, usbReEnumerate); // TEST_CODE
     assert(usbReEnumerationTimer);
 
 #if USB_DEVICE_CONFIG_USE_TASK
