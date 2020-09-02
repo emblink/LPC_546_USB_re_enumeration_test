@@ -76,7 +76,7 @@ usb_hid_mouse_struct_t g_UsbDeviceHidMouse;
 
 extern usb_device_class_struct_t g_UsbDeviceHidMouseConfig;
 
-/* Set class configurations */git
+/* Set class configurations */
 usb_device_class_config_struct_t g_UsbDeviceHidConfig[1] = {{
     USB_DeviceHidMouseCallback, /* HID mouse class callback pointer */
     (class_handle_t)NULL,       /* The HID class handle, This field is set by USB_DeviceClassInit */
